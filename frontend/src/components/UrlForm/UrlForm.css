@@ -1,0 +1,32 @@
+main {
+  display: block;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+h2 {
+  padding: 20px;
+  margin: 20px ;
+}
+
+.form-wrapper {
+  background-color: #ffff;
+  box-shadow: 1px 4px #ccc;
+  border-radius: 30px;
+  max-width: 800px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.submit-btn {
+  text-align: center;
+  text-shadow: 1px 1px 1px #000;
+}
+
+.url-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+} input {
+  margin: 10px 0;
+}

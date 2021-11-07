@@ -1,11 +1,11 @@
 import './App.css';
-import UrlForm from '../UrlForm/UrlForm';
+import UrlForm from '../UrlForm/UrlForm.js';
 
 function App() {
 	return (
 		<div className='App'>
 			<header className='App-header'>
-				<h2>Url Shortener</h2>
+				<h1>Url Shortener</h1>
 			</header>
 			<UrlForm />
 		</div>
