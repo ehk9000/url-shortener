@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import shortid from 'shortid';
 
 const urlSchema = new mongoose.Schema(
 	{
@@ -11,4 +10,4 @@ const urlSchema = new mongoose.Schema(
 	}
 );
 
-export default mongoose.model('Urls');
+export default mongoose.model('Urls', urlSchema);

@@ -10,8 +10,8 @@ app.use(express.json());
 
 app.post('/longUrl', async (req, res) => {
 	try {
-		const { longUrl } = req.body.longUrl;
-		if (req?.body?.longUrl) {
+		const { longUrl } = req?.body?.longUrl;
+		if (longUrl) {
 			const newUrl = await models.Urls.create({
 				longUrl,
 				shortUrl: shortid.generate,
@@ -20,6 +20,23 @@ app.post('/longUrl', async (req, res) => {
 		} else {
 			res.status(401).send('Please Provide Valid URL');
 		}
+	} catch (error) {
+		console.log(error.message);
+		res.status(500).send(error.message);
+	}
+});
+
+app.post('/shortUrl', async (req, res) => {
+	try {
+		const { shortUrl } = req?.body?.shortUrl;
+		if (shortUrl) {
+			const longUrl = await models.Urls.findOne({ shortUrl }).longUrl;
+
+			res.redirect(longUrl);
+		}
+		return res
+			.status(404)
+			.send(`Sorry, no redirect has been found for ${shortUrl}`);
 	} catch (error) {
 		console.log(error.message);
 		res.status(500).send(error.message);
