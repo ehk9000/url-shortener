@@ -11,7 +11,7 @@ h2 {
 }
 
 .form-wrapper {
-	background-color: #ffff;
+	background-color: #fffffa;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 	border-radius: 30px;
 	max-width: 800px;
@@ -21,11 +21,12 @@ h2 {
 
 .submit-btn {
 	text-align: center;
-	font-weight: 500;
-	height: 40px;
+	font-weight: 700;
+	font-size: 16px;
+	height: 50px;
 	padding: 10px;
 	width: 50%;
-	margin-top: 10px;
+	margin-top: 30px;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 	border-radius: 10px;
 	color: #fffffa;
@@ -52,4 +53,7 @@ input {
 	border: 1px solid #cacdca;
 	border-radius: 10px;
 	width: 50%;
+	font-weight: 500;
+	font-size: 14px;
+	font-style: italic;
 }
