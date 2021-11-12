@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const urlSchema = new mongoose.Schema(
 	{
-		longUrl: String,
+		fullUrl: String,
 		shortUrl: String,
 	},
 	{

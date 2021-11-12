@@ -8,12 +8,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.post('/longUrl', async (req, res) => {
+app.post('/createUrl', async (req, res) => {
 	try {
-		const { longUrl } = req?.body?.longUrl;
-		if (longUrl) {
+		const { fullUrl } = req?.body?.fullUrl;
+		if (fullUrl) {
 			const newUrl = await models.Urls.create({
-				longUrl,
+				fullUrl,
 				shortUrl: shortid.generate,
 			});
 			return res.status(201).send(newUrl);
@@ -26,11 +26,11 @@ app.post('/longUrl', async (req, res) => {
 	}
 });
 
-app.post('/shortUrl', async (req, res) => {
+app.get('/:shortUrl', async (req, res) => {
 	try {
-		const { shortUrl } = req?.body?.shortUrl;
+		const { shortUrl } = req?.params?.shortUrl;
 		if (shortUrl) {
-			const longUrl = await models.Urls.findOne({ shortUrl }).longUrl;
+			const fullUrl = await models.Urls.findOne({ shortUrl }).fullUrl;
 
 			res.redirect(longUrl);
 		}
