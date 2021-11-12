@@ -8,9 +8,9 @@ Run make setup in terminal
 
 make setup utilizes the included MakeFile to compose a docker container that instantiates a MongoDb database at port 27017. 
 
-It then runs the server-setup script, which installs all packages for both the frontend and the backend servers at the same time
+It then runs the server-setup script, which installs all packages for both the frontend and the backend servers at the same time.
 
-npm start or make server will spin up both the frontend and backend servers simultaneously. The frontend server is run on http://localhost:3000/ and backend server is run on http://localhost:8080
+npm start or make server will spin up both the frontend and backend servers simultaneously. The frontend server is run on http://localhost:3000/ and backend server is run on http://localhost:8080/
 
 
 npm test or make test will run the server-side tests using Jest 
