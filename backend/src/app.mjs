@@ -22,11 +22,11 @@ app.post('/createUrl', async (req, res) => {
 			});
 			return res.status(201).json(newUrl);
 		} else {
-			res.status(401).json('Please Provide Valid URL');
+			return res.status(401).json('Please Provide Valid URL');
 		}
 	} catch (error) {
 		console.log(error.message);
-		res.status(500).json(error.message);
+		return res.status(500).json(error.message);
 	}
 });
 
@@ -35,12 +35,13 @@ app.get('/:shortUrl', async (req, res) => {
 		const { shortUrl } = req?.params;
 		if (shortUrl) {
 			const url = await Urls.findOne({ shortUrl });
-
-			return res.redirect(url.fullUrl);
+			url
+				? res.status(302).redirect(url.fullUrl)
+				: res
+						.status(404)
+						.json(`Sorry, no redirect has been found for ${shortUrl}`);
 		} else {
-			return res
-				.status(404)
-				.json(`Sorry, no redirect has been found for ${shortUrl}`);
+			return res.status(400).json('Please provide valid short url');
 		}
 	} catch (error) {
 		console.log(error.message);
