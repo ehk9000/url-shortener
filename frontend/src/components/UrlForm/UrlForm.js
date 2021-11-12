@@ -9,8 +9,8 @@ const UrlForm = () => {
 			<main>
 				<section className='form-wrapper'>
 					<form onSubmit={handleSubmit()}>
-						<h2>Paste a Url You Would Like To Shorten</h2>
 						<section className='url-wrapper'>
+							<h2>Paste a Url You Would Like To Shorten</h2>
 							<input
 								placeholder='Shorten Your Link'
 								type='text'

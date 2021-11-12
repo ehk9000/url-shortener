@@ -1,19 +1,15 @@
 .App {
-  box-sizing: border-box;
 	text-align: center;
-  min-height: 100vh;
+	min-height: 100vh;
 }
-
 
 .App-header {
-	/* display: flex;
-	flex-direction: row;
-	align-items: center;
-  justify-content: center; */
+	margin: 15px auto;
 	font-size: calc(10px + 2vmin);
-} h1 {
-  max-width: 1000px;
-  margin: 20px auto; 
-
 }
-
+h1 {
+	max-width: 1000px;
+	margin: 20px auto;
+	padding: 25px;
+	color: #fffffa;
+}

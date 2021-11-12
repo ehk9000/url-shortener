@@ -32,7 +32,7 @@ app.get('/:shortUrl', async (req, res) => {
 		if (shortUrl) {
 			const fullUrl = await models.Urls.findOne({ shortUrl }).fullUrl;
 
-			res.redirect(longUrl);
+			res.redirect(fullUrl);
 		}
 		return res
 			.status(404)

@@ -1,34 +1,55 @@
 main {
 	display: block;
-	margin: 0 auto;
+	margin: 60px auto 0 auto;
 	max-width: 1000px;
 }
 
 h2 {
 	padding: 20px;
-	margin: 20px;
+	margin: 5px;
+	width: 100%;
 }
 
 .form-wrapper {
 	background-color: #ffff;
-	box-shadow: 1px 4px #ccc;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 	border-radius: 30px;
 	max-width: 800px;
-	height: 300px;
+	height: 275px;
 	margin: 0 auto;
 }
 
 .submit-btn {
 	text-align: center;
-	text-shadow: 1px 1px 1px #000;
+	font-weight: 500;
+	height: 40px;
+	padding: 10px;
+	width: 50%;
+	margin-top: 10px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	border-radius: 10px;
+	color: #fffffa;
+	border: transparent;
+	background: radial-gradient(
+		circle,
+		rgba(222, 98, 98, 1) 0%,
+		rgba(255, 184, 140, 1) 100%
+	);
 }
 
 .url-wrapper {
 	display: flex;
-	flex-flow: row nowrap;
+	flex-flow: column nowrap;
 	justify-content: space-evenly;
+	align-items: center;
+	margin: 0 auto;
 }
 
 input {
 	margin: 10px 0;
+	height: 50px;
+	padding: 15px;
+	border: 1px solid #cacdca;
+	border-radius: 10px;
+	width: 50%;
 }
