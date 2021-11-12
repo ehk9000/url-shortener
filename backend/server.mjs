@@ -2,19 +2,20 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import shortid from 'shortid';
-import models from './src/models/urls.mjs';
+import { Urls } from './src/models/urls.mjs';
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+mongoose.connect('mongodb://username:password@localhost:27017');
 
 app.post('/createUrl', async (req, res) => {
 	try {
-		const { fullUrl } = req?.body?.fullUrl;
+		const { fullUrl } = req?.body;
 		if (fullUrl) {
-			const newUrl = await models.Urls.create({
+			const newUrl = await Urls.create({
 				fullUrl,
-				shortUrl: shortid.generate,
+				shortUrl: shortid.generate(),
 			});
 			return res.status(201).send(newUrl);
 		} else {
@@ -28,9 +29,9 @@ app.post('/createUrl', async (req, res) => {
 
 app.get('/:shortUrl', async (req, res) => {
 	try {
-		const { shortUrl } = req?.params?.shortUrl;
+		const { shortUrl } = req?.params;
 		if (shortUrl) {
-			const fullUrl = await models.Urls.findOne({ shortUrl }).fullUrl;
+			const fullUrl = await Urls.findOne({ shortUrl }).fullUrl;
 
 			res.redirect(fullUrl);
 		}

@@ -10,4 +10,4 @@ const urlSchema = new mongoose.Schema(
 	}
 );
 
-export default mongoose.model('Urls', urlSchema);
+export const Urls = mongoose.model('Urls', urlSchema);
