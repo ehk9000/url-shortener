@@ -1,8 +1,8 @@
-import express, { response } from 'express';
+import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import shortid from 'shortid';
-import { Urls } from './src/models/urls.mjs';
+import { Urls } from './models/urls.mjs';
 
 const app = express();
 app.use(cors());
@@ -46,13 +46,6 @@ app.get('/:shortUrl', async (req, res) => {
 		console.log(error.message);
 		res.status(500).json(error.message);
 	}
-});
-
-app.set('port', process.env.port || 8081);
-app.listen(app.get('port'), () => {
-	console.log(
-		`Url-Shortener Server is running ⚡️ at http://localhost:${app.get('port')}`
-	);
 });
 
 export default app;

@@ -1,14 +1,14 @@
 {
-    "scripts": {
-        "frontend-setup": "cd frontend && npm i",
-        "backend-setup": "cd backend && npm i",
-        "frontend-start": "cd frontend && npm start",
-        "backend-start": "cd backend && npm start",
-        "server-setup": "npm i && concurrently \"npm run backend-setup\" \"npm run frontend-setup\"",
-        "start": "concurrently \"npm run backend-start\" \"npm run frontend-start\"",
-        "test": "cd backend && npm test"
-    },
-    "devDependencies": {
-        "concurrently": "^6.1.0"
-    }
+	"scripts": {
+		"frontend-setup": "cd frontend && npm i",
+		"backend-setup": "cd backend && npm i",
+		"frontend-start": "cd frontend && npm start",
+		"backend-start": "cd backend && npm start",
+		"server-setup": "npm i && concurrently \"npm run backend-setup\" \"npm run frontend-setup\"",
+		"start": "concurrently \"npm run backend-start\" \"npm run frontend-start\"",
+		"test": "cd backend && npm test"
+	},
+	"devDependencies": {
+		"concurrently": "^6.1.0"
+	}
 }
