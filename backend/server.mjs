@@ -10,9 +10,12 @@ app.use(express.json());
 mongoose.connect('mongodb://username:password@localhost:27017');
 
 app.post('/createUrl', async (req, res) => {
+	const regExCheck =
+		/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+
 	try {
 		const { fullUrl } = req?.body;
-		if (fullUrl) {
+		if (fullUrl && fullUrl.match(regExCheck)) {
 			const newUrl = await Urls.create({
 				fullUrl,
 				shortUrl: shortid.generate(),

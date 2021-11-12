@@ -57,3 +57,7 @@ input {
 	font-size: 14px;
 	font-style: italic;
 }
+
+.error {
+	color: red;
+}

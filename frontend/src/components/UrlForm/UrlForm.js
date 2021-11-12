@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './UrlForm.css';
 import ShortUrlCard from '../ShortUrlCard/ShortUrlCard';
 
@@ -6,6 +6,12 @@ const UrlForm = () => {
 	const [fullUrl, setFullUrl] = useState('');
 	const [shortUrl, setShortUrl] = useState('');
 	const [error, setError] = useState('');
+
+	useEffect(() => {
+		if (!fullUrl) {
+			setError('');
+		}
+	}, [fullUrl]);
 
 	const handleSubmit = async () => {
 		try {
@@ -18,8 +24,9 @@ const UrlForm = () => {
 			if (response.ok) {
 				const resolvedRes = await response.json();
 				setShortUrl(`http://localhost:8081/${resolvedRes.shortUrl}`);
+			} else {
+				setError(await response.json());
 			}
-			setError(response.json());
 		} catch (error) {
 			setError(error.message);
 		}
@@ -41,10 +48,12 @@ const UrlForm = () => {
 						<button type='submit' className='submit-btn' onClick={handleSubmit}>
 							Shorten Url
 						</button>
-						{error ? <p>{error}</p> : null}
+						{error ? <p className='error'>{error}</p> : null}
 					</section>
-					{shortUrl ? <ShortUrlCard shortUrl={shortUrl} /> : null}
 				</section>
+				{shortUrl ? (
+					<ShortUrlCard shortUrl={shortUrl} fullUrl={fullUrl} />
+				) : null}
 			</main>
 		</>
 	);

@@ -1,8 +1,21 @@
 .short-url-card-wrapper {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-evenly;
 	background-color: #fffffa;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 	border-radius: 30px;
 	max-width: 800px;
 	height: 150px;
-	margin: 0 auto;
+	margin: 25px auto;
+}
+
+a {
+	font-size: 18px;
+	font-weight: 500;
+}
+
+article p {
+	font-size: 12px;
+	font-style: italic;
 }
