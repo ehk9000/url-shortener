@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { response } from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import shortid from 'shortid';
@@ -17,13 +17,13 @@ app.post('/createUrl', async (req, res) => {
 				fullUrl,
 				shortUrl: shortid.generate(),
 			});
-			return res.status(201).send(newUrl);
+			return res.status(201).json(newUrl);
 		} else {
-			res.status(401).send('Please Provide Valid URL');
+			res.status(401).json('Please Provide Valid URL');
 		}
 	} catch (error) {
 		console.log(error.message);
-		res.status(500).send(error.message);
+		res.status(500).json(error.message);
 	}
 });
 
@@ -31,22 +31,25 @@ app.get('/:shortUrl', async (req, res) => {
 	try {
 		const { shortUrl } = req?.params;
 		if (shortUrl) {
-			const fullUrl = await Urls.findOne({ shortUrl }).fullUrl;
+			const url = await Urls.findOne({ shortUrl });
 
-			res.redirect(fullUrl);
+			return res.redirect(url.fullUrl);
+		} else {
+			return res
+				.status(404)
+				.json(`Sorry, no redirect has been found for ${shortUrl}`);
 		}
-		return res
-			.status(404)
-			.send(`Sorry, no redirect has been found for ${shortUrl}`);
 	} catch (error) {
 		console.log(error.message);
-		res.status(500).send(error.message);
+		res.status(500).json(error.message);
 	}
 });
 
 app.set('port', process.env.port || 8081);
 app.listen(app.get('port'), () => {
-	console.log(`Server is running ⚡️ at http://localhost:${app.get('port')}`);
+	console.log(
+		`Url-Shortener Server is running ⚡️ at http://localhost:${app.get('port')}`
+	);
 });
 
 export default app;

@@ -16,17 +16,13 @@ const UrlForm = () => {
 
 			if (response.ok) {
 				const resolvedRes = await response.json();
-				console.log('shortResponse', resolvedRes.shortUrl);
-				setShortUrl(`http:localhost:3000/${resolvedRes.shortUrl}`);
+				setShortUrl(`http://localhost:8081/${resolvedRes.shortUrl}`);
 			}
 			setError(response.message);
 		} catch (error) {
 			setError(error.message);
 		}
 	};
-
-	console.log('full', fullUrl);
-	console.log('short', shortUrl);
 
 	return (
 		<>
