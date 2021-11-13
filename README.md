@@ -1,6 +1,6 @@
 # url-shortener
 
-## INSTALL INSTRUCTIONS
+## Install Instructions
 
 Clone the repo to your terminal
 
