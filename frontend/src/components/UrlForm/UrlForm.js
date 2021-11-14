@@ -15,7 +15,7 @@ const UrlForm = () => {
 
 	const handleSubmit = async () => {
 		try {
-			const response = await fetch('http://localhost:8081/createUrl', {
+			const response = await fetch('http://localhost:8080/createUrl', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ fullUrl }),
@@ -23,7 +23,7 @@ const UrlForm = () => {
 
 			if (response.ok) {
 				const resolvedRes = await response.json();
-				setShortUrl(`http://localhost:8081/${resolvedRes.shortUrl}`);
+				setShortUrl(`http://localhost:8080/${resolvedRes.shortUrl}`);
 			} else {
 				setError(await response.json());
 			}

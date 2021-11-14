@@ -7,5 +7,5 @@ services:
     ports:
       - 27017:27017
     environment:
-      MONGO_INITDB_ROOT_USERNAME: usename
+      MONGO_INITDB_ROOT_USERNAME: username
       MONGO_INITDB_ROOT_PASSWORD: password

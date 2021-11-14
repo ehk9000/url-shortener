@@ -9,7 +9,6 @@
 
 setup:
 	docker-compose up -d
-	docker run -d --rm mongo
 	npm run server-setup 
 # `make server` will be used after `make setup` in order to start
 # an http server process that listens on any unreserved port

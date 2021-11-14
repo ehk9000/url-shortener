@@ -66,7 +66,6 @@ describe('Server', () => {
 			const shortUrl = shortid.generate();
 
 			const response = await request(app).get(`/${shortUrl}`);
-			console.log(response.body);
 
 			expect(response.statusCode).toBe(404);
 			expect(response.body).toEqual(
